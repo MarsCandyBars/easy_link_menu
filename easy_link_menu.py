@@ -5,61 +5,85 @@ easy_link_menu
 '''
 import webbrowser
 
-#Creates two lists. name_menu will store the menu entry
-#and name_link will store the associated link.
-name_menu = []
-name_link = []
+menu_name = []
+link = []
 
-#Prompts users for menu selection and appends 'Add' functionality by default.
-print('If no menu options are available, please select Add.')
-name_menu.append('Add')
+
+def prompt():
+    '''
+    Description:
+        This function prints the running list and prompts
+        for item choice.
+    Args:
+        None.
+    Returns:
+        user_choice
+    '''
+    count = 1
+    for i in menu_name:
+        print(str(count) + '. ', i)
+        count += 1
+    user_choice = input('\n' + 'Please enter menu item choice: ')
+    return user_choice
+
+def add():
+    '''
+    Description:
+        This function adds new items to the list.
+    Args:
+        None.
+    Returns:
+        name_list, link_list
+    '''
+    name_list = input('Please enter friendly name: ')
+    link_list = input('Please enter link: ')
+
+    menu_name.append(name_list)
+    link.append(link_list)
+
+    return [name_list, link_list]
+
+def menu():
+    '''
+    Description:
+        This function prints menu tag line.
+    Args:
+        None.
+    Returns:
+        None.
+    '''
+    print('EASY_LINKS_MENU')
+
+menu_name.append('Add')
+
+menu()
 count = 1
 
-#Loop is currently infinite. Only able to add 9 menu options currently.
-while count < 100:
+
+while True:
     
-    for i in name_menu:
-        choice = input('Please enter menu item choice: ')
+    choice = prompt()
 
-        if choice == 'Add':
-            print(name_menu)
-            name_list = input('Please enter friendly name: ')
-            link_list = input('Please enter link: ')
-
-            name_menu.append(name_list)
-            name_link.append(link_list)
-        #In all choices below, the menu is printed and the webbrowser function
-        #opens the name_link increment.
-        elif choice == '1':
-            print(name_menu)
-            webbrowser.open(name_link[0])
-        elif choice == '2':
-            print(name_menu)
-            webbrowser.open(name_link[1])
-        elif choice == '3':
-            print(name_menu)
-            webbrowser.open(name_link[2])
-        elif choice == '4':
-            print(name_menu)
-            webbrowser.open(name_link[3])
-        elif choice == '5':
-            print(name_menu)
-            webbrowser.open(name_link[4])
-        elif choice == '6':
-            print(name_menu)
-            webbrowser.open(name_link[5])
-        elif choice == '7':
-            print(name_menu)
-            webbrowser.open(name_link[6])
-        elif choice == '8':
-            print(name_menu)
-            webbrowser.open(name_link[7])
-        elif choice == '9':
-            print(name_menu)
-            webbrowser.open(name_link[8])
-        elif choice == '10':
-            print(name_menu)
-            webbrowser.open(name_link[9])
-
-    count += 1
+    if choice == '1':
+        add_list = add()
+    elif choice == '2':
+        webbrowser.open(link[0])
+    elif choice == '3':
+        webbrowser.open(link[1])
+    elif choice == '4':
+        webbrowser.open(link[2])
+    elif choice == '5':
+        webbrowser.open(link[3])
+    elif choice == '6':
+        webbrowser.open(link[4])
+    elif choice == '7':
+        webbrowser.open(link[5])
+    elif choice == '8':
+        webbrowser.open(link[6])
+    elif choice == '9':
+        webbrowser.open(link[7])
+    elif choice == '10':
+        webbrowser.open(link[8])
+    elif choice == '11':
+        webbrowser.open(link[9])
 
